@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="flex h-15 z-10 flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-gradient-to-r from-slate-900 to-slate-700 sm:items-baseline w-full"
+      >
+        <div class="mb-2 sm:mb-0 flex flex-row">
+          <div class="h-10 w-50 self-center mr-2">
+            <a
+              class="font-bold items-center flex text-white"
+              href="./homepage.html"
+              ><img
+                class="h-10 w-50 rounded-full self-center mr-2"
+                src="./images/logo.png"
+              />BROOKWORM</a
+            >
+          </div>
+        </div>
+
+        <div class="sm:mb-0 self-center">
+          <a
+            href="./adminPannel.html"
+            class="no-underline self-center text-black text-2xl ml-2 px-2 fancy-orange"
+            id="dashboard"
+            >Dashboard</a
+          >
+          <a
+            href="./login_signup.html"
+            class="no-underline self-center text-grey-darker text-2xl ml-2 px-2 fancy-orange"
+            id="login"
+            >Login/Signup</a
+          >
+          <a
+            href="#"
+            class="no-underline self-center text-grey-darker text-2xl ml-2 px-2 fancy-orange"
+            id="logout"
+            >Logout</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div
+        class="min-w-screen mb-10 max-h-3/4 bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative"
+        id="card-holder"
+      >
+      <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-0 mx-auto text-gray-800 relative md:text-left">
+        <div class="md:flex items-center -mx-10">
+            <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                <div class="relative">
+                    <img src="" class="w-full relative z-10" style="height: 500px; width: 500px" alt="">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 px-10">
+                <div class="mb-10">
+                    <h1 class="font-bold uppercase text-2xl mb-5">[BOOK_TITLE]</h1>
+                    <p class="text-sm">Author: [AUTHOR_NAME] [AUTHOR_SURNAME]</p>
+                    <p class="text-sm">Category: [BOOK_CATEGORY]</p>
+                    <p class="text-sm">Pages: [BOOK_PAGES]</p>
+                    <p class="text-sm">Year: [BOOK_PUBLISHING_YEAR]</p>
+                </div>
+                <div>
+                    <div class="inline-block align-bottom mr-5"></div>
+                    <div class="inline-block align-bottom">
+                        <button class="bg-yellow-300 opacity-75 mr-2 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold">
+                            <i class="mdi mdi-cart -ml-2 mr-2"></i>READ BOOK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+      <div class="container mx-auto">
+        <div class="forms flex flex-col md:flex-row w-full">
+          <div class="note_form w-full md:w-1/2">
+            <div
+              id="note_error_field"
+              class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg hidden"
+              role="alert"
+            >
+              <p id="note_error_message"></p>
+            </div>
+            <h2 class="w-3/4 mx-auto text-3xl font-extrabold">
+              Add a new Note
+            </h2>
+            <form>
+              <div
+                class="w-3/4 mx-auto mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
+              >
+                <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+                  <textarea
+                    id="note"
+                    rows="4"
+                    class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Write a note..."
+                    required
+                  ></textarea>
+                </div>
+                <div
+                  class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
+                >
+                  <button
+                    type="submit"
+                    id="note_submit"
+                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                  >
+                    Add Note
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="comment_form w-full md:w-1/2">
+            <div
+              id="comment_error_field"
+              class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg hidden"
+              role="alert"
+            >
+              <p id="comment_error_message"></p>
+            </div>
+            <h2 class="w-3/4 mx-auto text-3xl font-extrabold">
+              Add a new Comment
+            </h2>
+            <form>
+              <div
+                class="w-3/4 mx-auto mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
+              >
+                <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+                  <textarea
+                    id="comment"
+                    rows="4"
+                    class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Write a comment..."
+                    required
+                  ></textarea>
+                </div>
+                <div
+                  class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
+                >
+                  <button
+                    type="submit"
+                    id="comment_submit"
+                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                  >
+                    Add Comment
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    
+      <div class="existing_notes w-3/4 mx-auto">
+        <h2 class="font-bold text-3xl w-fit mx-auto my-5">Your Notes</h2>
+        <div
+          class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6"
+          id="notes-holder"
+        >
+        <div class="rounded hidden">
+          <div class="w-full h-64 flex flex-col overflow-auto justify-between dark:bg-gray-800 bg-white dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
+              <div>
+                  <p class="text-gray-800 note dark:text-gray-100 text-sm" contenteditable="false">[NOTE_CONTENT]</p>
+              </div>
+              <div>
+                  <div class="flex edit items-center justify-between text-gray-800 dark:text-gray-100">
+                      <button class="w-8 h-8 bg-yellow-300 rounded-full text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black edit" aria-label="edit note" data-edit-note-id="[NOTE_ID]" role="button">
+                          <i class="bi bi-pencil"></i>
+                      </button>
+                      <button class="w-8 submit hidden bg-emerald-400 h-8 rounded-full text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black" aria-label="submit note" data-submit-note-id="[NOTE_ID]" role="button">
+                          <i class="bi bi-check-lg"></i>
+                      </button>
+                      <button class="w-8 cancel hidden bg-red-500 h-8 rounded-full text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black" aria-label="submit note" role="button">
+                          <i class="bi bi-x-lg"></i>
+                      </button>
+                      <button class="w-8 h-8 delete rounded-full bg-red-500 text-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black" aria-label="delete note" data-delete-note-id="[NOTE_ID]" role="button">
+                          <i class="bi bi-trash"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      </div>
+      <div class="existing_comment w-3/4 mx-auto">
+        <h2 class="font-bold text-3xl w-fit mx-auto my-5">Your Comment</h2>
+        <div class="hidden" id="comment-holder">
+          <div class="border shadow-2xl rounded-md p-3 ml-3 my-4">
+            <div class="flex gap-3 items-center">
+              <h3 class="font-bold">John Doe</h3> <!-- Replace 'John Doe' with the actual username -->
+            </div>
+            <p class="text-gray-600 mt-2">This is a comment content.</p> <!-- Replace with the actual comment content -->
+          </div>
+          
+        </div>
+      </div>
+      <div class="all_comments pb-10 w-3/4 mx-auto">
+        <h2 class="font-bold text-3xl w-fit mx-auto my-5">All comments about the book</h2>
+        <div
+          id="comments-holder"
+        ></div>
+      </div>
+    </main>
+    <footer class="h-fit">
+      <div  class="w-full bg-gray-900 flex justify-center  text-white font-bold text-xl " style="height: 50px;"><p id="footer_message"></p></div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="module" src="./scripts/singleBook.js"></script>
+  </body>
+</html>

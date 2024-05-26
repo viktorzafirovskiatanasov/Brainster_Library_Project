@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body class="bg-cyan-600">
+   <div class="flex">
+    <nav class="w-1/5 fixed md:static z-10">
+      <span
+        class="absolute nav_toggle text-white text-4xl top-5 left-4 cursor-pointer"
+        
+      >
+        <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+      </span>
+      <div
+        class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900"
+      >
+        <div class="text-gray-100 text-xl">
+          <div class="p-2.5 mt-1 flex items-center">
+            <a class="font-bold items-center flex text-white" href="./homepage.html"
+                ><img
+                  class="h-10 w-50 rounded-full self-center mr-2"
+                  src="./images/logo.png"
+              />BROOKWORM</a>
+            <i
+              class="bi bi-x nav_toggle cursor-pointer ml-28 lg:hidden"
+              
+            ></i>
+          </div>
+          <div class="my-2 bg-gray-600 h-[1px]"></div>
+        </div>
+        <div
+          class="toggle-button p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gradient-to-r from-orange-400 to-amber-200 hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white"
+          data-section = 'Book'
+          >
+          
+          <i class="bi bi-book"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold"
+            >Add a New Book</span
+          >
+        </div>
+        <div
+          class="toggle-button p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white"
+          data-section = 'Author'
+          >
+          <i class="bi bi-person-plus-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold"
+            >Add a New Author</span
+          >
+        </div>
+        <div
+          class="toggle-button p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white"
+          data-section = 'Category'
+          >
+          <i class="bi bi-bookmark-plus-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold"
+            >Add a New Category</span
+          >
+        </div>
+       
+          <div class="toggle-dropdown p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white" >
+            <div class="flex items-center">
+              <i class="bi bi-chat-left-text-fill"></i>
+              <span class="text-[15px] ml-4 text-gray-200 font-bold">Filter Comments</span>
+            </div>
+          </div>
+          <ul class="desplegable ml-4 hidden">
+            <li class="toggle-button rounded-md" data-section = 'Pending'>
+              <a href="#" class="text-[15px] ml-4 text-gray-200 font-bold flex items-center py-3">
+                <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                Pending
+              </a>
+            </li>
+            <li class="toggle-button rounded-md" data-section = 'Approved'>
+              <a href="#" class="text-[15px] ml-4 text-gray-200 font-bold flex items-center py-3">
+                <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                Approved
+              </a>
+            </li>
+            <li class="toggle-button rounded-md" data-section = 'Denied'>
+              <a href="#" class="text-[15px] ml-4 text-gray-200 font-bold flex items-center py-3">
+                <i class="fas fa-chevron-right mr-2 text-xs"></i>
+                Denied
+              </a>
+            </li>
+          </ul>
+          <div
+          class="toggle-button p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white"
+          data-section = 'RestoreAuthor'
+          >
+          
+          <i class="bi bi-arrow-90deg-left"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold"
+            >Restore Deleted Authors</span
+          >
+        </div>
+        <div
+        class="toggle-button p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white"
+        data-section = 'RestoreCategory'
+        >
+        
+        <i class="bi bi-arrow-90deg-left"></i>
+        <span class="text-[15px] ml-4 text-gray-200 font-bold"
+          >Restore Deleted Category</span
+        >
+      </div>
+        <div class="my-4 bg-gray-600 h-[1px]"></div>
+        <div
+          class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-gradient-to-r from-orange-400 to-amber-200 text-white"
+          id="logout"
+          >
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="w-full md:w-4/5">
+      <div class="BookSection section ml-5 md:ml-0 mr-5 mt-20 md:mt-0">
+        <div class="addBookForm">
+          <fieldset class="border border-black  p-10 w-full">
+            <legend class="text-[25px] text-gray-200 font-bold">Add New Book</legend>
+            <div id="book_error" class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg hidden" role="alert">
+              <p></p>
+             
+            </div>   
+            <div id="book_success" class="relative py-3 pl-4 pr-10 leading-normal text-green-700 bg-green-100 rounded-lg hidden" role="alert">
+              <p></p>
+             
+            </div>   
+            <form action="" class="w-full flex flex-wrap" id="book_form" data-path="add_book" data-edit="edit_book_row">
+             <div class="w-full md:w-1/2 px-2">
+              <label for="title" class="block">Book Name:</label>
+
+              <input
+                id="title"
+                type="text"
+                name="title"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                placeholder="Enter the book name"
+              />
+             </div>
+             <div class="w-full md:w-1/2 px-2">
+              <label for="author" class="block overflow-auto">Book Author:</label>
+
+              <select name="author" id="author" class="block w-full px-4 py-2 text-gray-700 border rounded-md bg-white border-gray-300 focus:outline-none focus:ring focus:ring-blue-300">
+                
+              </select>
+             </div>
+             <div class="w-full md:w-1/2 px-2">
+              <label for="year" class="block">Year Of Publishing:</label>
+
+              <input
+                id="year"
+                type="text"
+                name="year"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                placeholder="Enter the book name"
+              />
+             </div>
+             <div class="w-full md:w-1/2 px-2">
+              <label for="pages" class="block">Number Of Pages:</label>
+
+              <input
+                id="pages"
+                type="text"
+                name="pages"
+                class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                placeholder="Enter the book name"
+              />
+             </div>
+             
+             <div class="w-full md:w-1/2 px-2">
+               <label for="picture" class="block">Book Picture:</label>
+              <input
+              id="picture"
+              type="text"
+              name="picture"
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              placeholder="Enter the book name"
+            />
+             </div>
+              <div class="w-full md:w-1/2 px-2">
+                <label for="category" class="block overflow-auto">Book Category:</label>
+
+                <select name="category" id="category" class="block w-full px-4 py-2 text-gray-700 border rounded-md bg-white border-gray-300 focus:outline-none focus:ring focus:ring-blue-300">
+                 
+                </select>
+              </div>
+             <div class="w-full md:w-1/2">
+              <button
+              class="btn submit_button rounded-full w-full  mt-6 bg-green-500 py-2 px-5"
+              id="add_book"
+              data-form="book_form"
+              data-error="book_error"
+              data-success="book_success"
+            >
+              Add Book
+            </button>
+             </div>
+            </form>
+          </fieldset>
+        </div>
+        <div class="AllBooksSection  my-10 md:pr-5 overflow-x-auto">
+          <table  id="book_table" class="w-full text-center">
+            <thead>
+              <tr class="bg-gray-300 ">
+                <th class="px-3 py-2">Book Name</th>
+                <th class="px-3 py-2">Book Author</th>
+                <th class="px-3 py-2">Publishing Year</th>
+                <th class="px-3 py-2">Number of Pages</th>
+                <th class="px-3 py-2">Book Picture</th>
+                <th class="px-3 py-2">Book Category</th>
+                <th class="px-3 py-2">Actions</th>
+              </tr>
+            </thead>
+             <tbody id="table_body_book" class="text-center bg-slate-200">
+  
+             </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="AuthorSection section hidden ml-5 md:ml-0 mr-5 mt-20 md:mt-0">
+        <fieldset class="border border-black  p-10 w-full">
+          <legend class="text-[25px] text-gray-200 font-bold">Add New Author</legend>
+          <div id="author_error" class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg hidden" role="alert">
+            <p ></p>
+           
+          </div>   
+          <div id="author_success" class="relative py-3 pl-4 pr-10 leading-normal text-green-700 bg-green-100 rounded-lg hidden" role="alert">
+            <p ></p>
+           
+          </div>      
+          <form action=""  class="w-full flex flex-wrap" id="author_form" data-path="add_author" data-edit="edit_author_row">
+                <div class="w-full md:w-1/2 px-2">
+                  <label for="add_author_name" class="block">Author Name:</label>
+                   
+                  <input
+                    id="add_author_name"
+                    type="text"
+                    name="add_author_name"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                    placeholder="Enter the book name"
+                  />
+                 </div>
+                 <div class="w-full md:w-1/2 px-2">
+                  <label for="add_author_surrname" class="block">Author Surrname:</label>
+                   
+                  <input
+                    id="add_author_surrname"
+                    type="text"
+                    name="add_author_surrname"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                    placeholder="Enter the book name"
+                  />
+                 </div>
+                 <div class="w-full md:w-1/2 px-2">
+                  <label for="add_author_bio" class="block">Author Short Bio:</label>
+                   
+                  <textarea name="add_author_bio" id="add_author_bio" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" cols="50" rows="5"></textarea>
+                 </div>
+                 <div class="w-full md:w-1/2">
+                  <button
+                  class="btn submit_button rounded-full w-full  mt-6 bg-green-500 py-2 px-5"
+                  id="add_author"
+                  data-form="author_form"
+                  data-error="author_error"
+                  data-success="author_success"
+                >
+                  Add Author
+                </button>
+                 </div>
+              </form>
+        </fieldset>
+        <div class="AllAuthorsSection  my-10 md:pr-5 overflow-x-auto">
+          <table  id="author_table" class="w-full">
+            <thead>
+              <tr class="bg-gray-300 ">
+                <th class="px-3 py-2">Author Name</th>
+                <th class="px-3 py-2">Author Surrname</th>
+                <th class="px-3 py-2">Author Short Bio</th>
+                <th class="px-3 py-2">Actions</th>
+              </tr>
+            </thead>
+             <tbody id="table_body_author" class="text-center bg-slate-200">
+                  
+             </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="CategorySection section hidden">
+          <div class="addCategory  ml-5 md:ml-0 mr-5 mt-20 md:mt-0">
+            
+            <fieldset class="border border-black  p-10 w-full">
+              <legend class="text-[25px] text-gray-200 font-bold">Add New Category</legend>
+              <div id="category_error" class="relative py-3 pl-4 pr-10 leading-normal text-red-700 bg-red-100 rounded-lg hidden" role="alert">
+                <p ></p>
+               
+              </div>   
+              <div id="category_success" class="relative py-3 pl-4 pr-10 leading-normal text-green-700 bg-green-100 rounded-lg hidden" role="alert">
+                <p ></p>
+               
+              </div>  
+              <form action="" class="w-full flex flex-wrap"  id="category_form" data-path="add_category" data-edit="edit_category_row">
+                    <div class="w-full md:w-1/2 px-2">
+                      <label for="add_category_name" class="block">Category:</label>
+                       
+                      <input
+                        id="add_category_name"
+                        type="text"
+                        name="add_category_name"
+                        class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                        placeholder="Enter the book name"
+                      />
+                     </div>
+                     <div class="w-full md:w-1/2">
+                      <button
+                      class="btn submit_button rounded-full w-full  mt-6 bg-green-500 py-2 px-5"
+                      id="add_category"
+                      data-form="category_form"
+                      data-error = "category_error"
+                      data-success = "category_success"
+                    >
+                      Add Category
+                    </button>
+          </div>
+                  </form>
+        </fieldset>
+          <div class="AllCategorySection my-10 md:pr-5 overflow-x-auto">
+            <table id="category_table" class="w-full">
+              <thead>
+                
+                <tr class="bg-gray-300 ">
+                  <th class="px-3 py-2">Category Name</th>
+                  <th class="px-3 py-2">Actions</th>
+                </tr>
+              </thead>
+               <tbody id="table_body_category" class="text-center bg-slate-200">
+                    
+               </tbody>
+            </table>
+          </div>
+      </div>
+      </div>
+      <div class="section PendingSection hidden overflow-x-auto mt-10">
+          <table id="pending_table" class="w-full">
+            <thead>
+              
+              <tr class="bg-gray-300 ">
+                <th class="px-3 py-2">Pending Comments</th>
+                <th class="px-3 py-2">Actions</th>
+              </tr>
+            </thead>
+             <tbody id="table_body_pending" class="text-center bg-slate-200">
+                  
+             </tbody>
+         
+        </table>
+      </div>
+      
+      <div class="section ApprovedSection overflow-x-auto hidden mt-10">
+        <table id="approved_table" class="w-full">
+          <thead>
+            
+            <tr class="bg-gray-300 ">
+              <th class="px-3 py-2">Approved comments</th>
+              <th class="px-3 py-2">Actions</th>
+            </tr>
+          </thead>
+           <tbody id="table_body_approved" class="text-center bg-slate-200">
+                
+           </tbody>
+        </table>
+      </div>
+      
+      <div class="section DeniedSection overflow-x-auto hidden mt-10">
+        <table id="denied_table" class="w-full">
+          <thead>
+            
+            <tr class="bg-gray-300 ">
+              <th class="px-3 py-2">Denied Comments</th>
+              <th class="px-3 py-2">Actions</th>
+            </tr>
+          </thead>
+           <tbody id="table_body_denied" class="text-center bg-slate-200">
+                
+           </tbody>
+        </table>
+      </div>
+      <div class="section RestoreAuthorSection overflow-x-auto hidden mt-10">
+        <table id="restore_author_table" class="w-full">
+          <thead>
+            
+            <tr class="bg-gray-300 ">
+              <th class="px-3 py-2">Author Name</th>
+              <th class="px-3 py-2">Author Surrname</th>
+              <th class="px-3 py-2">Author Bio</th>
+              <th class="px-3 py-2">Actions</th>
+            </tr>
+          </thead>
+           <tbody id="table_body_restore_author" class="text-center bg-slate-200">
+                
+           </tbody>
+        </table>
+      </div>
+      <div class="section RestoreCategorySection overflow-x-auto hidden mt-10">
+        <table id="restore_category_table" class="w-full">
+          <thead>
+            
+            <tr class="bg-gray-300 ">
+              <th class="px-3 py-2">Category Title</th>
+              <th class="px-3 py-2">Actions</th>
+            </tr>
+          </thead>
+           <tbody id="table_body_restore_category" class="text-center bg-slate-200">
+                
+           </tbody>
+        </table>
+      </div>
+    </main>
+   </div>
+    <footer class="w-full md:w-4/5 ml-auto h-fit">
+      <div  class="w-full bg-gray-900 flex justify-center  text-white font-bold text-xl " style="height: 50px;"><p id="footer_message"></p></div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="module" src="./scripts/admin_pannel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+  </body>
+</html>

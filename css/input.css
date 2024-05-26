@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.login-background{
+    background-image: url('../images/login.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.signup-background{
+    background-image: url('../images/signup.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hero_img{
+    background-image: url('../images/hero_img.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+}
+.fancy {
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+      background-image: 
+      url("../images/low-poly-grid-haikei.svg");
+      background-size: 110% auto;
+      background-position: center;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  .fancy-orange {
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+      background-image: 
+      url("../images/low-poly-grid-haikei\ 2.svg");
+      background-size: 110% auto;
+      background-position: center;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  .editable {
+    border: 2px solid #4CAF50; 
+}
+

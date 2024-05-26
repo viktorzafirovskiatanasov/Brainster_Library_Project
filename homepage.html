@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Bookworm Adventure</title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="relative">
+        <nav
+          class="flex absolute h-15 z-10 flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-gradient-to-r from-slate-900 to-slate-700 sm:items-baseline w-full"
+        >
+          <div class="mb-2 sm:mb-0 flex flex-row">
+            <div class="h-10 w-50 self-center mr-2">
+              <a class="font-bold items-center flex text-white" href="./homepage.html"
+                ><img
+                  class="h-10 w-50 rounded-full self-center mr-2"
+                  src="./images/logo.png"
+              />BROOKWORM</a>
+            </div>
+          </div>
+
+          <div class="sm:mb-0 self-center">
+            <a
+              href="./adminPannel.html"
+              class="no-underline self-center text-black text-2xl ml-2 px-2 fancy-orange"
+              id="dashboard"
+              >Dashboard</a
+            >
+            <a
+              href="./login_signup.html"
+              class="no-underline self-center text-grey-darker text-2xl ml-2 px-2 fancy-orange"
+              id = "login"
+              >Login/Signup</a
+            >
+            <a
+            href="#"
+            class="no-underline self-center text-grey-darker text-2xl ml-2 px-2 fancy-orange"
+            id = "logout"
+            >Logout</a
+          >
+          </div>
+        </nav>
+        <div class="hero_banner h-screen relative">
+          <div
+            class="text_div absolute text-center left-1/2 bottom-20 -translate-x-1/2"
+          >
+            <h1 class="text-6xl fancy font-bold">
+              Enter your very own
+              <span class="underlined">Bookworm's</span> adventure
+            </h1>
+          </div>
+          <div class="hero_img h-full"></div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="wrapper bg-gradient-to-tr from-orange-600 to-orange-300" style="padding-bottom: 7rem;">
+        <div class="filters py-5">
+          <div id="filter_switch" class="container mx-auto">
+            <button
+              id="open_filters"
+              class="bg-emerald-400 py-2 px-6 rounded-xl"
+            >
+              Filters
+            </button>
+          </div>
+          <form action="" class="hidden" id="filter_form">
+            <div
+              class="filters flex flex-col justify-around md:flex-row"
+              id="filters"
+            >
+              <div class="by_category">
+                <h2>Filter by category:</h2>
+                <div class="by_category_options flex flex-col"></div>
+              </div>
+              <div class="by_author">
+                <h2>Filter by author:</h2>
+                <div class="by_authors_options flex flex-col"></div>
+              </div>
+              <div class="other_filters">
+                <h2>Filter by year:</h2>
+                <div class="by_year flex flex-col md:flex-row">
+                  <label for="min">Min:</label>
+                  <input
+                    type="number"
+                    name="min"
+                    id="min_year"
+                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                  />
+                  <label for="max">Max:</label>
+                  <input
+                    type="number"
+                    name="max"
+                    id="max_year"
+                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                  />
+                </div>
+                <h2 class="mt-6">Filter by number of pages</h2>
+                <div class="by_pages flex flex-col md:flex-row">
+                  <label for="min">Min:</label>
+                  <input
+                    type="number"
+                    name="min"
+                    id="min_pages"
+                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                  />
+                  <label for="max">Max:</label>
+                  <input
+                    type="number"
+                    name="max"
+                    id="max_pages"
+                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              id="apply_filters"
+              class="bg-emerald-400 py-2 px-6 rounded-xl mt-3"
+            >
+              Apply
+            </button>
+          </form>
+        </div>
+        <section class="container mx-auto px-0 md:px-0">
+          <h2 class="text-center text-6xl fancy font-bold mb-3">
+            Browse through our collection
+          </h2>
+          <section
+            class="grid lg:grid-cols-2 2xl:grid-cols-4 grid-cols-1 gap-10 antialiased"
+            id="card_container"
+          >
+          <article class="flex flex-col shadow-xl mx-auto max-w-sm bg-[RANDOM_COLOR]-100 py-20 px-12 transform duration-500 hover:-translate-y-2 cursor-pointer max-h-190 rounded-md">
+            <div class="bg-yellow-300"></div>
+            <div class="bg-blue-300"></div>
+            <div class="bg-purple-300"></div>
+            <div class="bg-red-300"></div>
+            <div class="min-h-62">
+                <img class="mx-auto mix-blend-color-multiply" src="" alt="" />
+            </div>
+            <h1 class="font-extrabold text-5xl mt-28 mb-10 text-gray-800">[BOOK_TITLE]</h1>
+            <h2 class="font-bold mb-5 text-gray-800">By [AUTHOR_NAME] [AUTHOR_SURNAME]</h2>
+            <p class="text-sm leading-relaxed text-gray-700">
+                Publishing year: [PUBLISHING_YEAR]<br>
+                Number of pages: [PAGES_NUMBER]<br>
+                Category: [CATEGORY]
+            </p>
+            <button data-book-id="[BOOK_ID]" class="mt-5 py-2 px-5 bg-emerald-400 rounded-lg">See More</button>
+        </article></section>
+        </section>
+      </div>
+    </main>
+    <footer class="h-fit">
+      <div  class="w-full bg-gray-900 flex justify-center  text-white font-bold text-xl " style="height: 50px;"><p id="footer_message"></p></div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="module"  src="./scripts/homepage.js"></script>
+    
+  </body>
+</html>
